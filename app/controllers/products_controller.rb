@@ -30,6 +30,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def product_data
+    product = Product.find(params[:id])
+    render json: ProductSerializer.serializer(product)
+  end 
+
   private
 
   def product_params
